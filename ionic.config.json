@@ -1,0 +1,7 @@
+{
+  "name": "MyActivityReport",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
