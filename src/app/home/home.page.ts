@@ -2,6 +2,7 @@ import { CalendarComponent } from 'ionic2-calendar';
 import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { CalModalPage } from '../pages/cal-modal/cal-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -119,5 +120,40 @@ export class HomePage {
  
   removeEvents() {
     this.eventSource = [];
+  }
+  
+  async openCalModal() {
+    const modal = await this.modalCtrl.create({
+      component: CalModalPage,
+      cssClass: 'cal-modal',
+      backdropDismiss: false
+    });
+   
+    await modal.present();
+   
+    modal.onDidDismiss().then((result) => {
+      if (result.data && result.data.event) {
+        let event = result.data.event;
+        if (event.allDay) {
+          let start = event.startTime;
+          event.startTime = new Date(
+            Date.UTC(
+              start.getUTCFullYear(),
+              start.getUTCMonth(),
+              start.getUTCDate()
+            )
+          );
+          event.endTime = new Date(
+            Date.UTC(
+              start.getUTCFullYear(),
+              start.getUTCMonth(),
+              start.getUTCDate() + 1
+            )
+          );
+        }
+        this.eventSource.push(result.data.event);
+        this.myCal.loadEvents();
+      }
+    });
   }
 }

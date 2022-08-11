@@ -57,23 +57,23 @@
     </ion-col>
   </ion-row>
 
-  <!-- <calendar
-    [showEventDetail]="false"
+  <calendar
+    [showEventDetail]="true"
     [eventSource]="eventSource"
     [calendarMode]="calendar.mode"
     [currentDate]="calendar.currentDate"
     (onEventSelected)="onEventSelected($event)"
     (onTitleChanged)="onViewTitleChanged($event)"
-    startHour="6"
-    endHour="20"
+    startHour="9"
+    endHour="18"
     step="30"
     startingDayWeek="1"
   >
-  </calendar> -->
+  </calendar>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
+      <ion-icon name="add" (click)="openCalModal($event)"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

@@ -1,9 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>calModal</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-button (click)="close()">
+      <ion-icon name="close" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <!-- Titre avec la date complète -->
+  <ion-title>{{ viewTitle }}</ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="save()">
+      <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+ 
 <ion-content>
+  <!-- <ion-item>
+    <ion-label position="stacked">Title</ion-label>
+    <ion-input tpye="text" [(ngModel)]="event.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-input tpye="text" [(ngModel)]="event.desc"></ion-input>
+  </ion-item> -->
+ 
+  <!-- dropdown list avec le numéro de ticket -->
+  <!-- drop down avec le % de la journée -->
+  <!-- bloc commentaire -->
 
+  <!-- Tableau avec la liste des tickets déjà créé -->
+
+
+  <!-- <calendar
+    *ngIf="modalReady"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    lockSwipes="true"
+  >
+  </calendar> -->
 </ion-content>
