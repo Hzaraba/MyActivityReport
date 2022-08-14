@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CalModalPageRoutingModule } from './cal-modal-routing.module';
 import { CalModalPage } from './cal-modal.page';
-import { NgCalendarModule  } from 'ionic2-calendar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -12,7 +11,8 @@ import { NgCalendarModule  } from 'ionic2-calendar';
     FormsModule,
     IonicModule,
     CalModalPageRoutingModule,
-    NgCalendarModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [CalModalPage]
 })

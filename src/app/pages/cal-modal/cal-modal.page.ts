@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,6 +9,8 @@ import { ModalController } from '@ionic/angular';
 })
 
 export class CalModalPage implements AfterViewInit {
+  activityForm: FormGroup;
+
   calendar = {
     mode: 'month',
     currentDate: new Date()
@@ -24,7 +27,7 @@ export class CalModalPage implements AfterViewInit {
  
   modalReady = false;
  
-  constructor(private modalCtrl: ModalController) { }
+  constructor(public formBuilder: FormBuilder, private modalCtrl: ModalController) { }
  
   ngAfterViewInit() {
     setTimeout(() => {

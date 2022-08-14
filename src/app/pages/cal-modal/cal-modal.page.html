@@ -12,7 +12,7 @@
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
- 
+
 <ion-content>
   <!-- <ion-item>
     <ion-label position="stacked">Title</ion-label>
@@ -22,7 +22,7 @@
     <ion-label position="stacked">Description</ion-label>
     <ion-input tpye="text" [(ngModel)]="event.desc"></ion-input>
   </ion-item> -->
- 
+
   <!-- dropdown list avec le numéro de ticket -->
   <!-- drop down avec le % de la journée -->
   <!-- bloc commentaire -->
@@ -39,4 +39,35 @@
     lockSwipes="true"
   >
   </calendar> -->
+
+  <form [formGroup]="activityForm" (ngSubmit)="submitForm()" novalidate>
+    <!-- Prism number -->
+    <ion-item lines="full">
+      <ion-label position="floating">Ticket number</ion-label>
+      <ion-input type="number" value="333"></ion-input>
+    </ion-item>
+    <!-- Description -->
+    <!-- Temps -->
+    <ion-list>
+      <ion-item lines="full">
+        <ion-select placeholder="Activity duration">
+          <ion-select-option value="0.25">Quarter a day</ion-select-option>
+          <ion-select-option value="0.5">Half a day</ion-select-option>
+          <ion-select-option value="1">All day</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <!-- Commentaire -->
+    <ion-item lines="full">
+      <ion-label position="floating">Comment</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Create</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
 </ion-content>
