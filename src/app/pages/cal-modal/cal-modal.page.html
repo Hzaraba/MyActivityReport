@@ -23,13 +23,6 @@
     <ion-input tpye="text" [(ngModel)]="event.desc"></ion-input>
   </ion-item> -->
 
-  <!-- dropdown list avec le numéro de ticket -->
-  <!-- drop down avec le % de la journée -->
-  <!-- bloc commentaire -->
-
-  <!-- Tableau avec la liste des tickets déjà créé -->
-
-
   <!-- <calendar
     *ngIf="modalReady"
     [calendarMode]="calendar.mode"
@@ -44,13 +37,13 @@
     <!-- Prism number -->
     <ion-item lines="full">
       <ion-label position="floating">Ticket number</ion-label>
-      <ion-input type="number" value="333"></ion-input>
+      <ion-input type="number" value="333" required></ion-input>
     </ion-item>
     <!-- Description -->
     <!-- Temps -->
     <ion-list>
       <ion-item lines="full">
-      <ion-select placeholder="Activity duration">
+      <ion-select placeholder="Activity duration" required>
         <ion-select-option value="0.25">Quarter a day</ion-select-option>
         <ion-select-option value="0.5">Half a day</ion-select-option>
         <ion-select-option value="1">All day</ion-select-option>
@@ -71,7 +64,7 @@
     </ion-row>
   </form>
 
-  <ion-list-header>
+  <!-- <ion-list-header>
     <ion-label><h2>Activity of the day</h2></ion-label>
   </ion-list-header>
 
@@ -88,6 +81,6 @@
       <ion-label>3456</ion-label>
       <ion-label slot="end">0,5 day</ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>
