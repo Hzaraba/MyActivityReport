@@ -14,26 +14,11 @@
 </ion-toolbar>
 
 <ion-content>
-  <!-- <ion-item>
-    <ion-label position="stacked">Title</ion-label>
-    <ion-input tpye="text" [(ngModel)]="event.title"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Description</ion-label>
-    <ion-input tpye="text" [(ngModel)]="event.desc"></ion-input>
-  </ion-item> -->
+  <div class="ion-text-center">
+    <h3>Remaining : {{ getRemainingDays() }} day</h3>
+  </div>
 
-  <!-- <calendar
-    *ngIf="modalReady"
-    [calendarMode]="calendar.mode"
-    [currentDate]="calendar.currentDate"
-    (onTitleChanged)="onViewTitleChanged($event)"
-    (onTimeSelected)="onTimeSelected($event)"
-    lockSwipes="true"
-  >
-  </calendar> -->
-
-  <form #activityForm="ngForm" (ngSubmit)="onSubmitForm()" novalidate>
+  <form #f="ngForm" (ngSubmit)="onSubmitForm()" novalidate>
     <!-- Prism number -->
     <ion-item lines="full">
       <ion-label position="floating">Ticket number</ion-label>
@@ -53,12 +38,16 @@
     <!-- Commentaire -->
     <ion-item lines="full">
       <ion-label position="floating">Comment</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea placeholder="Details on the ticket"></ion-textarea>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block"
+        <ion-button
+          type="submit"
+          color="danger"
+          expand="block"
+          [disabled]="!f.valid"
           >Create</ion-button
         >
       </ion-col>

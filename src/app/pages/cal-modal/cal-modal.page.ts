@@ -1,56 +1,60 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cal-modal',
   templateUrl: './cal-modal.page.html',
   styleUrls: ['./cal-modal.page.scss'],
 })
-
 export class CalModalPage implements AfterViewInit {
   activityForm: FormGroup;
 
   calendar = {
     mode: 'month',
-    currentDate: new Date()
+    currentDate: new Date(),
   };
   viewTitle: string;
-  
+
   event = {
     title: '',
     desc: '',
     startTime: null,
     endTime: '',
-    allDay: true
+    allDay: true,
   };
- 
+
   modalReady = false;
- 
-  constructor(public formBuilder: FormBuilder, private modalCtrl: ModalController) { }
- 
+
+  constructor(
+    public formBuilder: FormBuilder,
+    private modalCtrl: ModalController,
+    private alertController: AlertController
+  ) {}
+
   ngAfterViewInit() {
     setTimeout(() => {
-      this.modalReady = true;      
+      this.modalReady = true;
     }, 0);
   }
-  
-  onSubmitForm() {
-
+  getRemainingDays() {
+    return 1;
   }
 
-  save() {    
-    this.modalCtrl.dismiss({event: this.event})
+  onSubmitForm() {}
+
+  save() {
+    this.modalCtrl.dismiss({ event: this.event });
   }
- 
+
   onViewTitleChanged(title) {
     this.viewTitle = title;
   }
- 
-  onTimeSelected(ev) {    
+
+  onTimeSelected(ev) {
     this.event.startTime = new Date(ev.selectedTime);
   }
- 
+
   close() {
     this.modalCtrl.dismiss();
   }
