@@ -17,37 +17,37 @@ export class HomePage {
     mode: 'month',
     currentDate: new Date(),
   };
- 
+
   selectedDate: Date;
 
- @ViewChild(CalendarComponent) myCal: CalendarComponent;
- 
+  @ViewChild(CalendarComponent) myCal: CalendarComponent;
+
   constructor(
     private alertCtrl: AlertController,
     @Inject(LOCALE_ID) private locale: string,
     private modalCtrl: ModalController
   ) {}
 
-   // Change current month/week/day
-   next() {
+  // Change current month/week/day
+  next() {
     this.myCal.slideNext();
   }
- 
+
   back() {
     this.myCal.slidePrev();
   }
- 
+
   // Selected date reange and hence title changed
   onViewTitleChanged(title) {
     this.viewTitle = title;
   }
- 
+
   // Calendar event was clicked
   async onEventSelected(event) {
     // Use Angular date pipe for conversion
     let start = formatDate(event.startTime, 'medium', this.locale);
     let end = formatDate(event.endTime, 'medium', this.locale);
- 
+
     const alert = await this.alertCtrl.create({
       header: event.title,
       subHeader: event.desc,
@@ -56,7 +56,7 @@ export class HomePage {
     });
     alert.present();
   }
- 
+
   createRandomEvents() {
     var events = [];
     for (var i = 0; i < 50; i += 1) {
@@ -117,20 +117,20 @@ export class HomePage {
     }
     this.eventSource = events;
   }
- 
+
   removeEvents() {
     this.eventSource = [];
   }
-  
-  async openCalModal() {
+
+  async openCalModal(e) {
     const modal = await this.modalCtrl.create({
       component: CalModalPage,
       cssClass: 'cal-modal',
-      backdropDismiss: false
+      backdropDismiss: false,
     });
-   
+
     await modal.present();
-   
+
     modal.onDidDismiss().then((result) => {
       if (result.data && result.data.event) {
         let event = result.data.event;

@@ -34,7 +34,11 @@ export class CalModalPage implements AfterViewInit {
       this.modalReady = true;      
     }, 0);
   }
- 
+  
+  onSubmitForm() {
+
+  }
+
   save() {    
     this.modalCtrl.dismiss({event: this.event})
   }
