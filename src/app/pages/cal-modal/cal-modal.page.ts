@@ -2,18 +2,18 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlertController, ModalController } from '@ionic/angular';
 
+export interface ITicket {
+  number: number;
+  duration: number;
+  comment: string;
+}
+
 @Component({
   selector: 'app-cal-modal',
   templateUrl: './cal-modal.page.html',
   styleUrls: ['./cal-modal.page.scss'],
 })
 export class CalModalPage implements AfterViewInit {
-  activityForm: FormGroup;
-
-  calendar = {
-    mode: 'month',
-    currentDate: new Date(),
-  };
   viewTitle: string;
 
   event = {
@@ -41,7 +41,9 @@ export class CalModalPage implements AfterViewInit {
     return 1;
   }
 
-  onSubmitForm() {}
+  onSubmitForm() {
+    // console.log(ITicket);
+  }
 
   save() {
     this.modalCtrl.dismiss({ event: this.event });

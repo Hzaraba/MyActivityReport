@@ -22,12 +22,22 @@
     <!-- Prism number -->
     <ion-item lines="full">
       <ion-label position="floating">Ticket number</ion-label>
-      <ion-input type="number" required></ion-input>
+      <ion-input
+        type="number"
+        [(ngModel)]="ITicket.number"
+        #numberCtrl="ngModel"
+        required
+      ></ion-input>
     </ion-item>
     <!-- Temps -->
     <ion-list>
       <ion-item lines="full">
-        <ion-select placeholder="Activity duration" required>
+        <ion-select
+          placeholder="Activity duration"
+          [(ngModel)]="ITicket.duration"
+          #durationCtrl="ngModel"
+          required
+        >
           <ion-select-option value="0.25">Quarter a day</ion-select-option>
           <ion-select-option value="0.5">Half a day</ion-select-option>
           <ion-select-option value="1">All day</ion-select-option>
@@ -38,7 +48,11 @@
     <!-- Commentaire -->
     <ion-item lines="full">
       <ion-label position="floating">Comment</ion-label>
-      <ion-textarea placeholder="Details on the ticket"></ion-textarea>
+      <ion-textarea
+        placeholder="Details on the ticket"
+        [(ngModel)]="ITicket.comment"
+        #commentCtrl="ngModel"
+      ></ion-textarea>
     </ion-item>
 
     <ion-row>
