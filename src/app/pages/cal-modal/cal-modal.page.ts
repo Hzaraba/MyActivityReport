@@ -1,12 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlertController, ModalController } from '@ionic/angular';
-
-export interface ITicket {
-  number: number;
-  duration: number;
-  comment: string;
-}
+import { TicketClass, ITicket } from '../../models/ticket-class.model';
 
 @Component({
   selector: 'app-cal-modal',
@@ -15,6 +10,7 @@ export interface ITicket {
 })
 export class CalModalPage implements AfterViewInit {
   viewTitle: string;
+  model: TicketClass;
 
   event = {
     title: '',
@@ -42,7 +38,7 @@ export class CalModalPage implements AfterViewInit {
   }
 
   onSubmitForm() {
-    // console.log(ITicket);
+    console.log(this.model);
   }
 
   save() {

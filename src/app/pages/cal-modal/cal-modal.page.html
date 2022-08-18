@@ -24,7 +24,7 @@
       <ion-label position="floating">Ticket number</ion-label>
       <ion-input
         type="number"
-        [(ngModel)]="ITicket.number"
+        [(ngModel)]="model.number"
         #numberCtrl="ngModel"
         required
       ></ion-input>
@@ -34,7 +34,7 @@
       <ion-item lines="full">
         <ion-select
           placeholder="Activity duration"
-          [(ngModel)]="ITicket.duration"
+          [(ngModel)]="model.duration"
           #durationCtrl="ngModel"
           required
         >
@@ -50,7 +50,7 @@
       <ion-label position="floating">Comment</ion-label>
       <ion-textarea
         placeholder="Details on the ticket"
-        [(ngModel)]="ITicket.comment"
+        [(ngModel)]="model.comment"
         #commentCtrl="ngModel"
       ></ion-textarea>
     </ion-item>
