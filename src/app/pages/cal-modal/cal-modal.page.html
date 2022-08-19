@@ -24,16 +24,22 @@
       <ion-label position="floating">Ticket number</ion-label>
       <ion-input
         type="number"
-        [(ngModel)]="model.number"
+        name="number"
         #numberCtrl="ngModel"
+        [(ngModel)]="model.number"
         required
       ></ion-input>
     </ion-item>
     <!-- Temps -->
-    <ion-list>
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-datetime displayFormat="hh-mm-A"></ion-datetime>
+    </ion-item>
+    <!-- <ion-list>
       <ion-item lines="full">
         <ion-select
           placeholder="Activity duration"
+          name="duration"
           [(ngModel)]="model.duration"
           #durationCtrl="ngModel"
           required
@@ -43,12 +49,13 @@
           <ion-select-option value="1">All day</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 
     <!-- Commentaire -->
     <ion-item lines="full">
       <ion-label position="floating">Comment</ion-label>
       <ion-textarea
+        name="comment"
         placeholder="Details on the ticket"
         [(ngModel)]="model.comment"
         #commentCtrl="ngModel"

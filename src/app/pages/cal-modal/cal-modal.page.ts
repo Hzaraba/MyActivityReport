@@ -10,7 +10,7 @@ import { TicketClass, ITicket } from '../../models/ticket-class.model';
 })
 export class CalModalPage implements AfterViewInit {
   viewTitle: string;
-  model: TicketClass;
+  model: TicketClass = new TicketClass();
 
   event = {
     title: '',
