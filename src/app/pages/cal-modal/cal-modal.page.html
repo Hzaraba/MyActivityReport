@@ -22,18 +22,17 @@
     <!-- Prism number -->
     <ion-item lines="full">
       <ion-label position="floating">Ticket number</ion-label>
-      <ion-input
-        type="number"
-        name="number"
-        #numberCtrl="ngModel"
-        [(ngModel)]="model.number"
-        required
-      ></ion-input>
+      <ion-input type="number" name="number" #numberCtrl="ngModel" [(ngModel)]="model.number" required></ion-input>
     </ion-item>
     <!-- Temps -->
     <ion-item>
-      <ion-label>Time</ion-label>
-      <ion-datetime displayFormat="hh-mm-A"></ion-datetime>
+      <ion-label>Starting time</ion-label>
+      <ion-datetime presentation="time" name="startTime" #numberCtrl="ngModel" [(ngModel)]="model.startTime" required>
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End time</ion-label>
+      <ion-datetime presentation="time" name="endTime" #numberCtrl="ngModel" [(ngModel)]="model.endTime" required></ion-datetime>
     </ion-item>
     <!-- <ion-list>
       <ion-item lines="full">
@@ -54,23 +53,13 @@
     <!-- Commentaire -->
     <ion-item lines="full">
       <ion-label position="floating">Comment</ion-label>
-      <ion-textarea
-        name="comment"
-        placeholder="Details on the ticket"
-        [(ngModel)]="model.comment"
-        #commentCtrl="ngModel"
-      ></ion-textarea>
+      <ion-textarea name="comment" placeholder="Details on the ticket" [(ngModel)]="model.comment"
+        #commentCtrl="ngModel"></ion-textarea>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button
-          type="submit"
-          color="danger"
-          expand="block"
-          [disabled]="!f.valid"
-          >Create</ion-button
-        >
+        <ion-button type="submit" color="danger" expand="block" [disabled]="!f.valid">Create</ion-button>
       </ion-col>
     </ion-row>
   </form>
