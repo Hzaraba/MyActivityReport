@@ -39,6 +39,7 @@ export class CalModalPage implements AfterViewInit {
 
   onSubmitForm() {
     console.log(this.model);
+    // this.model.getEvent();
   }
 
   save() {

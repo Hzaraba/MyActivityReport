@@ -6,10 +6,17 @@ export interface ITicket {
   endTime: Time;
   duration: number;
   comment: string;
+
+  setStartTime(time: Time):void
 }
 
 export class TicketClass implements ITicket {
   constructor() { }
+  
+  setStartTime(time: Time): void {
+    this.startTime = time;
+  }
+
   startTime: Time;
   endTime: Time;
   number: number;
