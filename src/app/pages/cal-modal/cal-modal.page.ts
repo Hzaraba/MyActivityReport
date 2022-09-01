@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlertController, ModalController } from '@ionic/angular';
-import { TicketClass, ITicket } from '../../models/ticket-class.model';
+import { TicketClass, ITicket, IEvent } from '../../models/ticket-class.model';
 
 @Component({
   selector: 'app-cal-modal',
@@ -11,14 +11,15 @@ import { TicketClass, ITicket } from '../../models/ticket-class.model';
 export class CalModalPage implements AfterViewInit {
   viewTitle: string;
   model: TicketClass = new TicketClass();
+  event: IEvent;
 
-  event = {
-    title: '',
-    desc: '',
-    startTime: null,
-    endTime: '',
-    allDay: true,
-  };
+  // event = {
+  //   title: '',
+  //   desc: '',
+  //   startTime: null,
+  //   endTime: '',
+  //   allDay: true,
+  // };
 
   modalReady = false;
 
@@ -39,7 +40,9 @@ export class CalModalPage implements AfterViewInit {
 
   onSubmitForm() {
     console.log(this.model);
-    // this.model.getEvent();
+    this.event = this.model.getEvent();
+
+    this.save();
   }
 
   save() {
@@ -51,7 +54,7 @@ export class CalModalPage implements AfterViewInit {
   }
 
   onTimeSelected(ev) {
-    this.event.startTime = new Date(ev.selectedTime);
+    // this.event.startTime = new Date(ev.selectedTime);
   }
 
   close() {

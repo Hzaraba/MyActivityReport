@@ -2,19 +2,33 @@ import { Time } from "@angular/common";
 
 export interface ITicket {
   number: number;
+  allDay: boolean;
   startTime: Time;
   endTime: Time;
   duration: number;
   comment: string;
-
-  setStartTime(time: Time):void
 }
+
+export interface IEvent {
+  title: string,
+  desc: string,
+  startTime: Time,
+  endTime: Time,
+  allDay: boolean,
+};
+
 
 export class TicketClass implements ITicket {
   constructor() { }
-  
-  setStartTime(time: Time): void {
-    this.startTime = time;
+
+  getEvent(): IEvent {
+    return {
+      title     : this.number.toString(),
+      desc      : '',
+      startTime : this.startTime,
+      endTime   : this.endTime,
+      allDay    : this.allDay,
+    }
   }
 
   startTime: Time;
@@ -22,5 +36,5 @@ export class TicketClass implements ITicket {
   number: number;
   duration: number;
   comment: string;
-
+  allDay: boolean;
 }
